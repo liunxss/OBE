@@ -1023,11 +1023,17 @@ else:
         detail_df["是否达标"] = detail_df["综合达成度"].apply(
             lambda x: "✅" if x >= threshold else "❌"
         )
+        
         st.dataframe(
-            detail_df.style.background_gradient(
-                subset=list(result.student_attainment.columns) + ["综合达成度"],
-                cmap="RdYlGn", vmin=0, vmax=1,
-            ),
-            use_container_width=True,
+            detail_df,
             height=400,
-        )
+            use_container_width=True
+            )
+        # st.dataframe(
+        #     detail_df.style.background_gradient(
+        #         subset=list(result.student_attainment.columns) + ["综合达成度"],
+        #         cmap="RdYlGn", vmin=0, vmax=1,
+        #     ),
+        #     use_container_width=True,
+        #     height=400,
+        # )
